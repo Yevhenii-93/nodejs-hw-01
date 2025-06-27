@@ -4,9 +4,9 @@ import { readContacts } from '../utils/readContacts.js';
 
 const generateContacts = async (number) => {
   const newContacts = Array.from({ length: number }, () => createFakeContact());
+  const existingContacts = await readContacts();
   const updatedContacts = [...existingContacts, ...newContacts];
   await writeContacts(updatedContacts);
-  const existingContacts = await readContacts();
   console.log(`${number} контакт(ів) успішно згенеровано та додано.`);
 };
 
