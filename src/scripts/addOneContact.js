@@ -10,7 +10,6 @@ export const addOneContact = async () => {
   const updatedContacts = [...contacts, newContact];
 
   await writeContacts(updatedContacts);
-  console.log('Додано контакт', newContact);
 };
 
 addOneContact();

@@ -7,7 +7,6 @@ const generateContacts = async (number) => {
   const existingContacts = await readContacts();
   const updatedContacts = [...existingContacts, ...newContacts];
   await writeContacts(updatedContacts);
-  console.log(`${number} контакт(ів) успішно згенеровано та додано.`);
 };
 
 generateContacts(5);
