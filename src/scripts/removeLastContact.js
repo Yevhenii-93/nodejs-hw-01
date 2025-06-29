@@ -1,12 +1,12 @@
-import { PATH_DB } from '../constants/contacts.js';
-// import { readContacts } from '../utils/readContacts.js';
-import fs from 'node:fs/promises';
+import { readContacts } from '../utils/readContacts.js';
+import { writeContacts } from '../utils/writeContacts.js';
 
 export const removeLastContact = async () => {
-  fs.unlink(PATH_DB);
-
-  //   const contacts = await readContacts();
-  //   fs.unlink(contacts);
+  const contacts = await readContacts();
+  if (contacts.length > 0) {
+    contacts.pop();
+    await writeContacts(contacts);
+  }
 };
 
 removeLastContact();
